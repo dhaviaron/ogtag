@@ -56,7 +56,7 @@ export default class OgtagController {
 
       const hash = await service.execute({ url, image, title, description });
 
-      return response.json({ url: `http://localhost:3337/${hash}` });
+      return response.json({ url: `${process.env.URL_API}/${hash}` });
     } catch (error) {
       return response.status(400).json({ error: error.message });
     }

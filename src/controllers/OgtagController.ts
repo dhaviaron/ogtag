@@ -12,31 +12,32 @@ export default class OgtagController {
       const getOgtag = container.resolve(GetHtmlOgtagService);
 
       const ogtag = await getOgtag.execute(hash);
-      console.log('OG', ogtag);
 
       response.writeHead(200, {
         'Content-Type': 'text/html',
       });
       response.write(
         `${
-          '<!DOCTYPE html>' +
-          '<html lang="pt-br">' +
-          '<head>' +
-          '<meta charset="UTF-8">' +
-          '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
-          '<title>Titulo</title>' +
-          '<meta property="og:title" content="Rivan Wup" />' +
-          '<meta property="og:description" content="'
-        }${ogtag?.description}" />` +
+          `${
+            `${
+              '<!DOCTYPE html>' +
+              '<html lang="pt-br">' +
+              '<head>' +
+              '<meta charset="UTF-8">' +
+              '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+              '<meta property="og:title" content="'
+            }${ogtag?.title}" />` + `<meta property="og:description" content="`
+          }${ogtag?.description}" />` +
           `<meta property="og:image" content="${ogtag?.image}" />` +
           `</head>` +
           `<body>` +
           `</body>` +
           '<script>' +
           'setTimeout(function() {' +
-          'window.location.replace("http://whatever.com/newpage.html")' +
-          '}, 2000);' +
-          '</script>' +
+          'window.location.replace("'
+        }${ogtag?.url}")` +
+          `}, 2000);` +
+          `</script>` +
           `</html>`,
       );
       response.end();

@@ -8,7 +8,7 @@ class OgtagRepository implements IOgtagRepository {
   private ormRepository: MongoRepository<Ogtag>;
 
   constructor() {
-    this.ormRepository = getMongoRepository(Ogtag);
+    this.ormRepository = getMongoRepository(Ogtag, process.env.MONGO_NAME);
   }
 
   public async create({

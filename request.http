@@ -1,0 +1,18 @@
+//@host = 192.168.1.106:3335
+@host = localhost:3337
+@baseUrl = http://{{host}}
+
+
+### Create Ogtag
+POST {{baseUrl}}/123123123 HTTP/1.1
+Content-Type: application/json
+
+{
+  "url": "http://localhost:3000/cadastrar?hash=rivanlindo",
+  "description": "Voce está sendo indicado pelo Rivan Bello",
+  "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQE_FrnXwIi0Fg/company-logo_200_200/0/1554926188041?e=2159024400&v=beta&t=LLowgxxo35fXLRRDdLjfJbLapcw49mAjGlnvr52vkXA",
+  "title": "Venha fazer parte da Wup!"
+}
+
+### Get Ogtag
+GET {{baseUrl}}/NKuJI9 HTTP/1.1

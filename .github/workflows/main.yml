@@ -41,7 +41,7 @@ jobs:
       
       # Copiar pasta dist para dentro da Digital Ocean/AWS 
       - name: Copy dist to Server
-        uses: appleboy/ssh-action@v0.1.4
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}

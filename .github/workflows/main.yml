@@ -39,6 +39,9 @@ jobs:
       - name: Run build
         run: yarn build
       
+      - name: Teste
+        run: echo "${{ secrets.SSH_KEY }}" - "${{ secrets.SSH_HOST }}" - "${{ secrets.SSH_USER }}" - "${{ secrets.SSH_PORT }}"
+      
       # Copiar pasta dist para dentro da Digital Ocean/AWS 
       - name: Copy dist to Server
         uses: appleboy/ssh-action@master

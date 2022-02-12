@@ -6,7 +6,14 @@ import routes from './routes';
 
 import '../container';
 
-createConnections();
+createConnections([
+  {
+    type: 'mongodb',
+    host: 'localhost',
+    port: 27017,
+    database: 'ogtag',
+  },
+]);
 
 const app = express();
 

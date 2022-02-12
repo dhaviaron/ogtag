@@ -46,10 +46,10 @@ jobs:
       - name: Copy dist to Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.SSH_WUP_HOST }}
+          username: ${{ secrets.SSH_WUP_USER }}
+          port: ${{ secrets.SSH_WUP_PORT }}
+          key: ${{ secrets.SSH_WUP_KEY}}
           source: ".,!node_modules"
           target: "~/app/ogtag"
           
@@ -57,10 +57,10 @@ jobs:
       - name: Install dependencies on server - yarn/restart
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY}}
+          host: ${{ secrets.SSH_WUP_HOST }}
+          username: ${{ secrets.SSH_WUP_USER }}
+          port: ${{ secrets.SSH_WUP_PORT }}
+          key: ${{ secrets.SSH_WUP_KEY}}
           script: |
             cd ~/app/ogtag
             yarn

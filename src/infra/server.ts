@@ -1,19 +1,13 @@
+import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
-import { createConnections } from 'typeorm';
+import { createConnection } from 'typeorm';
 import { errors } from 'celebrate';
 import AppError from '../errors/AppError';
 import routes from './routes';
 
 import '../container';
 
-createConnections([
-  {
-    type: 'mongodb',
-    host: 'localhost',
-    port: 27017,
-    database: 'ogtag',
-  },
-]);
+createConnection();
 
 const app = express();
 

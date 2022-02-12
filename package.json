@@ -19,6 +19,7 @@
     "express-handlebars": "^5.2.0",
     "hashids": "^2.2.8",
     "mongodb": "^3.6.3",
+    "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.4.0",
     "typeorm": "^0.2.29"
   },

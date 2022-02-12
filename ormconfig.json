@@ -1,0 +1,11 @@
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "port": 27017,
+  "database": "ogtag",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+     "src/schemas/*.ts"
+  ]
+}

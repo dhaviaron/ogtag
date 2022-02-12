@@ -4,7 +4,6 @@ node_modules
 build/
 temp/
 covarage
-ormconfig.json
 
 tmp/*
 !tmp/.gitkeep

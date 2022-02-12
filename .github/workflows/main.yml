@@ -39,9 +39,6 @@ jobs:
       - name: Run build
         run: yarn build
       
-      - name: Teste
-        run: echo "${{ secrets.SSH_KEY }}" - "${{ secrets.SSH_HOST }}" - "${{ secrets.SSH_USER }}" - "${{ secrets.SSH_PORT }}"
-      
       # Copiar pasta dist para dentro da Digital Ocean/AWS 
       - name: Copy dist to Server
         uses: appleboy/ssh-action@master
@@ -49,7 +46,7 @@ jobs:
           host: ${{ secrets.SSH_WUP_HOST }}
           username: ${{ secrets.SSH_WUP_USER }}
           port: ${{ secrets.SSH_WUP_PORT }}
-          key: ${{ secrets.SSH_WUP_KEY}}
+          key: ${{ secrets.SSH_WUP_KEY }}
           source: ".,!node_modules"
           target: "~/app/ogtag"
           
@@ -60,8 +57,8 @@ jobs:
           host: ${{ secrets.SSH_WUP_HOST }}
           username: ${{ secrets.SSH_WUP_USER }}
           port: ${{ secrets.SSH_WUP_PORT }}
-          key: ${{ secrets.SSH_WUP_KEY}}
+          key: ${{ secrets.SSH_WUP_KEY }}
           script: |
             cd ~/app/ogtag
             yarn
-            pm2 restart fael-api
+            pm2 restart ogtag

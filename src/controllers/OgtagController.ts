@@ -49,13 +49,19 @@ export default class OgtagController {
 
   public async create(request: Request, response: Response): Promise<Response> {
     try {
-      // const { token } = request.params; // todo
+      const { token } = request.params; // todo
 
       const { url, description, image, title } = request.body;
 
       const service = container.resolve(GenerateOgtagService);
 
-      const hash = await service.execute({ url, image, title, description });
+      const hash = await service.execute({
+        url,
+        image,
+        title,
+        description,
+        ogtag_hash: token,
+      });
 
       return response.json({ url: `${process.env.URL_API}/${hash}` });
     } catch (error) {

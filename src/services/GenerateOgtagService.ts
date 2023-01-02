@@ -20,14 +20,9 @@ class GenerateOgtagService {
     url,
     image,
     title,
+    ogtag_hash,
   }: IOgtagDTO): Promise<string> {
     // Gerar link de retorno
-    const hashedPassword = await this.hashProvider.generateHash(
-      `${description},${title},${image},${url}`,
-    );
-
-    const hashids = new Hashids(hashedPassword);
-    const ogtag_hash = hashids.encode(1, 2, 3);
 
     await this.ogtagRepository.create({
       description,

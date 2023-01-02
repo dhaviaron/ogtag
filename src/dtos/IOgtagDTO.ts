@@ -3,5 +3,5 @@ export default interface IOgtagDTO {
   description: string;
   image: string;
   title: string;
-  ogtag_hash?:string;
+  ogtag_hash: string;
 }

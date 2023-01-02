@@ -1,6 +1,4 @@
 import { inject, injectable } from 'tsyringe';
-import Hashids from 'hashids/cjs';
-
 import IOgtagRepository from '../repositories/IOgtagRepository';
 import IOgtagDTO from '../dtos/IOgtagDTO';
 import IHashProvider from '../container/providers/HashProvider/models/IHashProvider';
@@ -20,24 +18,24 @@ class GenerateOgtagService {
     url,
     image,
     title,
+    ogtag_hash,
   }: IOgtagDTO): Promise<string> {
     // Gerar link de retorno
-    const hashedPassword = await this.hashProvider.generateHash(
+    const hashedValue = await this.hashProvider.generateHash(
       `${description},${title},${image},${url}`,
     );
 
-    const hashids = new Hashids(hashedPassword);
-    const ogtag_hash = hashids.encode(1, 2, 3);
+    const hash = ogtag_hash;
 
     await this.ogtagRepository.create({
       description,
       title,
       image,
       url,
-      ogtag_hash,
+      ogtag_hash: hash,
     });
 
-    return ogtag_hash;
+    return hash;
   }
 }
 

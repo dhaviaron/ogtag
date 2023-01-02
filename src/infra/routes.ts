@@ -10,7 +10,7 @@ route.post(
   '/:token',
   celebrate({
     [Segments.PARAMS]: {
-      token: Joi.string().allow('', null),
+      token: Joi.string().required(),
     },
     [Segments.BODY]: {
       url: Joi.string().required(),
@@ -29,7 +29,7 @@ route.get(
       hash: Joi.string().required(),
     },
   }),
-  ogtagController.index
+  ogtagController.index,
 );
 
 export default route;

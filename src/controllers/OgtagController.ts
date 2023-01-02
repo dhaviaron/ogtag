@@ -54,6 +54,8 @@ export default class OgtagController {
       const { url, description, image, title } = request.body;
 
       const service = container.resolve(GenerateOgtagService);
+      console.log('OgtagController.create', { token });
+      console.log('OgtagController.create', { url });
 
       const hash = await service.execute({
         url,

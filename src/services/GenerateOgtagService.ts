@@ -16,6 +16,7 @@ class GenerateOgtagService {
     title,
     ogtag_hash,
   }: IOgtagDTO): Promise<string> {
+    console.log('GenerateOgtagService.execute', { ogtag_hash });
     await this.ogtagRepository.create({
       description,
       title,

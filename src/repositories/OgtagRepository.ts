@@ -18,6 +18,7 @@ class OgtagRepository implements IOgtagRepository {
     url,
     ogtag_hash,
   }: IOgtagDTO): Promise<Ogtag> {
+    console.log('OgtagRepository.create', { ogtag_hash });
     const ogtag = this.ormRepository.create({
       title,
       description,
